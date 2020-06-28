@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable */
+import React, { Fragment } from 'react';
+import PageWrapper from './components/PageWrapper';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+// PAGES
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Contact from './components/pages/Contact';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Fragment>
+      <Router>
+        <PageWrapper>
+            <Route 
+              exact={true}
+              path="/"
+              component={Home}
+            />
+            <Route 
+              path="/about"
+              component={About}
+            />
+            <Route 
+              path="/contact"
+              component={Contact}
+            />
+        </PageWrapper>
+      </Router>
+    // </Fragment>
   );
 }
 
